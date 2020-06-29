@@ -20,3 +20,10 @@ steps:
     nugetPackageVersion: '1.0'
     nugetPackageVersionUseBuildId: true
     requiredVersionOfDlma: 'latest'
+
+- task: OctopusPush@4
+  inputs:
+    OctoConnectedServiceName: 'BeepBeepOctopus'
+    Space: 'Spaces-22'
+    Package: '*.*'
+    Replace: 'true'
