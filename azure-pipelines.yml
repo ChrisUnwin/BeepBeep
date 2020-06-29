@@ -23,7 +23,7 @@ steps:
 
 - task: OctopusPush@4
   inputs:
-    OctoConnectedServiceName: 'BeepBeepOctopus'
+    OctoConnectedServiceName: 'BeepBeepEnterprise'
     Space: 'Spaces-22'
-    Package: '*.*'
-    Replace: 'true'
+    Package: 'BeepBeep_Database.1.0.{Release.ReleaseID}.nupkg'
+    Replace: 'false'
