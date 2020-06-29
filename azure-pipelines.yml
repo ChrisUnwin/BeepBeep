@@ -10,10 +10,13 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: RedgateSqlChangeAutomationBuild@4
+  inputs:
+    operation: 'Build'
+    dbFolder: 'RootFolder'
+    packageName: 'BeepBeep_Database'
+    tempServerTypeBuild: 'localDB'
+    nugetPackageVersionSelector: 'Specific'
+    nugetPackageVersion: '1.0'
+    nugetPackageVersionUseBuildId: true
+    requiredVersionOfDlma: 'latest'
