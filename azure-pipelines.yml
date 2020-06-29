@@ -16,6 +16,9 @@ steps:
     dbFolder: 'RootFolder'
     packageName: 'BeepBeep_Database'
     tempServerTypeBuild: 'localDB'
+    buildAdvanced: true
+    publishArtifact: false
+    transactionIsolationLevelBuild: 'serializable'
     nugetPackageVersionSelector: 'Specific'
     nugetPackageVersion: '1.0'
     nugetPackageVersionUseBuildId: true
@@ -25,5 +28,5 @@ steps:
   inputs:
     OctoConnectedServiceName: 'BeepBeepEnterprise'
     Space: 'Spaces-22'
-    Package: '$(System.DefaultWorkingDirectory)\**\BeepBeep_Database.1.0.$(Build.BuildID).nupkg'
+    Package: 'D:\a\1\s\BeepBeep_Database.1.0.$(Build.BuildID).nupkg'
     Replace: 'false'
