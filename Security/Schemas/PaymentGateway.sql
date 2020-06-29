@@ -1,0 +1,3 @@
+CREATE SCHEMA [PaymentGateway]
+AUTHORIZATION [dbo]
+GO
