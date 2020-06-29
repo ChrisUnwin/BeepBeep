@@ -25,5 +25,5 @@ steps:
   inputs:
     OctoConnectedServiceName: 'BeepBeepEnterprise'
     Space: 'Spaces-22'
-    Package: '$(System.DefaultWorkingDirectory)\**\BeepBeep_Database.1.0.{Build.BuildID}.nupkg'
+    Package: '$(System.DefaultWorkingDirectory)\**\BeepBeep_Database.1.0.$(Build.BuildID).nupkg'
     Replace: 'false'
