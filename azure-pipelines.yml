@@ -10,10 +10,23 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: RedgateSqlChangeAutomationBuild@4
+  inputs:
+    operation: 'Build'
+    dbFolder: 'RootFolder'
+    packageName: 'BeepBeep_Database'
+    tempServerTypeBuild: 'localDB'
+    buildAdvanced: true
+    publishArtifact: false
+    transactionIsolationLevelBuild: 'serializable'
+    nugetPackageVersionSelector: 'Specific'
+    nugetPackageVersion: '1.0'
+    nugetPackageVersionUseBuildId: true
+    requiredVersionOfDlma: 'latest'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: OctopusPush@4
+  inputs:
+    OctoConnectedServiceName: 'BeepBeepEnterprise'
+    Space: 'Spaces-22'
+    Package: 'D:\a\1\s\BeepBeep_Database.1.0.$(Build.BuildID).nupkg'
+    Replace: 'false'
